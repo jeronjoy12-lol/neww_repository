@@ -1,51 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeron Portfolio</title>
+  <meta name="description"
+    content="Jeron Joseph Lagi – BCA Cloud Computing student and full-stack web developer building modern, scalable web experiences." />
+  <title>Jeron Joseph Lagi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <header>
-    <h1 class="logo">JERON JOSEPH LAGI</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <!-- ========== HEADER / NAVBAR ========== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#hero"     class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="#about"    class="nav-link" id="nav-about">About</a></li>
+        <li><a href="#skills"   class="nav-link" id="nav-skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="#contact"  class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2 class="fade-in">BCA CLOUD COMPUTING</h2>
-    <p class="fade-in">Building modern web experiences.</p>
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+      <p class="hero-greeting">👋 Hello, I'm</p>
+      <h1 class="hero-name">JERON JOSEPH LAGI</h1>
+      <div class="hero-divider"></div>
+      <h2 class="hero-role">
+        <span class="typed-text" id="typedText"></span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="hero-tagline">Building modern, scalable &amp; beautiful web experiences</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary"   id="hero-projects-btn">View Projects</a>
+        <a href="#contact"  class="btn btn-secondary" id="hero-contact-btn">Get In Touch</a>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll Down</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I build clean, responsive and scalable web applications.</p>
-    <a href="https://www.linkedin.com/in/jeron-joseph-037414394?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">My linkedin</a>
-    <a href="mailto:jeronjoy12@gmail.com">Send me an email!!</a>
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="section about-section">
+    <div class="section-bg-img"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Who I Am</span>
+        <h2>About <span class="highlight">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="avatar-ring">
+            <div class="avatar-inner">JL</div>
+          </div>
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="about-text reveal">
+          <h3>Full-Stack Developer &amp; Cloud Enthusiast</h3>
+          <p>I'm a BCA Cloud Computing student passionate about building clean, responsive and scalable web
+            applications. I love turning complex problems into elegant solutions using modern technologies.</p>
+          <p>With experience in both frontend and backend development, I strive to create seamless digital experiences
+            that look great and perform even better.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="2">0</span><span>+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="5">0</span><span>+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="1">0</span><span>+</span>
+              <span class="stat-label">Years Coding</span>
+            </div>
+          </div>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/jeron-joseph-037414394?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank" class="social-btn linkedin-btn" id="linkedin-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              LinkedIn
+            </a>
+            <a href="mailto:jeronjoy12@gmail.com" class="social-btn email-btn" id="email-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" fill="none" stroke="white" stroke-width="2" />
+              </svg>
+              Send Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="projects" class=" section">
-    <h2>Projects</h2>
-    <div class="card">Portfolio Website</div>
-    <div class="card">Student Management System</div>
+  <!-- ========== SKILLS SECTION ========== -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Know</span>
+        <h2>My <span class="highlight">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid reveal">
+
+        <div class="skill-card">
+          <div class="skill-icon html-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h4>Data Structures</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="79"></div></div>
+          <span class="skill-percent">79%</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon css-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93V18c0-.55.45-1 1-1s1 .45 1 1v1.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93V6c0 .55-.45 1-1 1s-1-.45-1-1V4.07C7.05 4.56 4 7.92 4 12s3.05 7.44 7 7.93zm2-15.86V6c0 .55.45 1 1 1s1-.45 1-1V4.07c3.94.49 7 3.85 7 7.93s-3.06 7.44-7 7.93V18c0-.55-.45-1-1-1s-1 .45-1 1v1.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h4>C++</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
+          <span class="skill-percent">87%</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon js-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+            </svg>
+          </div>
+          <h4>Python</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <span class="skill-percent">85%</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon node-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zm-5-7l-3 3-3-3 1.5-1.5L9 11l1.5-1.5L12 11l1.5-1.5L15 11l-1.5 1.5z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h4>JavaScript</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="67"></div></div>
+          <span class="skill-percent">67%</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon cloud-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
+          <h4>Cloud Computing</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <span class="skill-percent">75%</span>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon git-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/>
+              <path d="M8 6h8M6 8v8M10 10l8-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h4>Git &amp; GitHub</h4>
+          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          <span class="skill-percent">78%</span>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-      <p id="responseMessage"></p>
-    </form>
+  <!-- ========== PROJECTS SECTION ========== -->
+  <section id="projects" class="section projects-section">
+    <div class="section-bg-img"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I've Built</span>
+        <h2>My <span class="highlight">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal" id="project-portfolio">
+          <div class="project-card-inner">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Live Demo" id="portfolio-demo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">A modern, responsive personal portfolio website showcasing skills, projects and
+              contact info. Built with HTML, CSS &amp; JavaScript with smooth animations.</p>
+            <div class="project-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-status">
+                <span class="status-dot"></span> Live
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" id="project-sms">
+          <div class="project-card-inner">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Live Demo" id="sms-demo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Student Management System</h3>
+            <p class="project-desc">A full-stack application to manage student records, attendance and performance.
+              Features CRUD operations, secure authentication and a clean dashboard UI.</p>
+            <div class="project-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">REST API</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-status">
+                <span class="status-dot"></span> Completed
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card project-card-soon reveal" id="project-coming-soon">
+          <div class="project-card-inner soon-inner">
+            <div class="soon-icon">🚀</div>
+            <h3>More Coming Soon</h3>
+            <p>Exciting new projects are in development. Stay tuned!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2>Contact <span class="highlight">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Let's work together!</h3>
+          <p>Feel free to reach out for collaborations, job opportunities or just a friendly chat about tech.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:jeronjoy12@gmail.com" class="contact-value" id="contact-email">jeronjoy12@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/jeron-joseph-037414394" target="_blank" class="contact-value"
+                  id="contact-linkedin">@jeron-joseph</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper reveal">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="John Doe" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" placeholder="john@example.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-full">
+              <span class="btn-text">Send Message</span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+            <p id="responseMessage" class="form-response"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-name">JERON JOSEPH LAGI</p>
+        <p class="footer-copy">&copy; <span id="year"></span> All rights reserved. Built with ❤️</p>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/jeron-joseph-037414394" target="_blank" id="footer-linkedin">LinkedIn</a>
+          <a href="mailto:jeronjoy12@gmail.com" id="footer-email">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
+
 </body>
+
 </html>

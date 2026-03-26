@@ -1,23 +1,23 @@
 {
-  "name": "full-stack---portfolio",
+  "name": "portfolio-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Jeron Joseph Lagi — Portfolio Backend (Express + MongoDB)",
+  "main": "Backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node Backend/server.js",
+    "dev":   "nodemon Backend/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jeron Joseph Lagi",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cors": "^2.8.6",
-    "exppress": "^0.0.1-security",
-    "express": "^5.2.1",
-    "mongoose": "^9.2.1",
-    "vite": "^8.0.3"
+    "cors":     "^2.8.6",
+    "dotenv":   "^16.0.0",
+    "express":  "^5.2.1",
+    "mongoose": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
   }
 }
