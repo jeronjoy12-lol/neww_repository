@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeron Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1 class="logo">JERON JOSEPH LAGI</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2 class="fade-in">BCA CLOUD COMPUTING</h2>
+    <p class="fade-in">Building modern web experiences.</p>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I build clean, responsive and scalable web applications.</p>
+    <a href="https://www.linkedin.com/in/jeron-joseph-037414394?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">My linkedin</a>
+    <a href="mailto:jeronjoy12@gmail.com">Send me an email!!</a>
+  </section>
+
+  <section id="projects" class=" section">
+    <h2>Projects</h2>
+    <div class="card">Portfolio Website</div>
+    <div class="card">Student Management System</div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="responseMessage"></p>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

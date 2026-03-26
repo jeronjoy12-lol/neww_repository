@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Jeron Joseph Lagi – BCA Cloud Computing student and full-stack web developer building modern, scalable web experiences." />
+  <title>Jeron Joseph Lagi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========== HEADER / NAVBAR ========== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+      <p class="hero-greeting reveal">👋 Hello, I'm</p>
+      <h1 class="hero-name reveal">JERON JOSEPH LAGI</h1>
+      <div class="hero-divider reveal"></div>
+      <h2 class="hero-role reveal">
+        <span class="typed-text" id="typedText"></span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="hero-tagline reveal">Building modern, scalable & beautiful web experiences</p>
+      <div class="hero-buttons reveal">
+        <a href="#projects" class="btn btn-primary" id="hero-projects-btn">View Projects</a>
+        <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">Get In Touch</a>
+      </div>
+      <div class="hero-scroll reveal">
+        <span>Scroll Down</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="section about-section">
+    <div class="section-bg-img"></div>
+    <div class="container">
+      <div class="section-header reveal">,,,,,,,
+        <span class="section-tag">Who I Am</span>
+        <h2>About <span class="highlight">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="avatar-ring">
+            <div class="avatar-inner">JL</div>
+          </div>
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="about-text reveal">
+          <h3>Full-Stack Developer & Cloud Enthusiast</h3>
+          <p>I'm a BCA Cloud Computing student passionate about building clean, responsive and scalable web
+            applications. I love turning complex problems into elegant solutions using modern technologies.</p>
+          <p>With experience in both frontend and backend development, I strive to create seamless digital experiences
+            that look great and perform even better.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="2">0</span><span>+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="5">0</span><span>+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="1">0</span><span>+</span>
+              <span class="stat-label">Years Coding</span>
+            </div>
+          </div>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/jeron-joseph-037414394?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank" class="social-btn linkedin-btn" id="linkedin-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              LinkedIn
+            </a>
+            <a href="mailto:jeronjoy12@gmail.com" class="social-btn email-btn" id="email-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" fill="none" stroke="white" stroke-width="2" />
+              </svg>
+              Send Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS SECTION ========== -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Know</span>
+        <h2>My <span class="highlight">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-card">
+          <div class="skill-icon html-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+            </svg>
+          </div>
+          <h4>Data Structures</h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="90"></div>
+          </div>
+          <span class="skill-percent">79%</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon css-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
+            </svg>
+          </div>
+          <h4>C++</h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="85"></div>
+          </div>
+          <span class="skill-percent">87%</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon js-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
+            </svg>
+          </div>
+          <h4>Python</h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="80"></div>
+          </div>
+          <span class="skill-percent">85%</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon node-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082 c0.57,0.329,0.924,0.944,0.924,1.603v10.15c0,0.659-0.354,1.275-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z" />
+            </svg>
+          </div>
+          <h4></h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="70"></div>
+          </div>
+          <span class="skill-percent">67%</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon cloud-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+            </svg>
+          </div>
+          <h4>Cloud Computing</h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="75"></div>
+          </div>
+          <span class="skill-percent">75%</span>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon git-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.sixth-.t406-.719-.721-.719-1.883 0-2.602.195-.195.639-.26.639-.26L8.047 2.87 .45 10.471c-.6.603-.6 1.579 0 2.182l10.478 10.478c.604.604 1.582.604 2.186 0l10.432-10.432c.6-.603.6-1.582 0-2.187" />
+            </svg>
+          </div>
+          <h4>Git & GitHub</h4>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="78"></div>
+          </div>
+          <span class="skill-percent">78%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS SECTION ========== -->
+  <section id="projects" class="section projects-section">
+    <div class="section-bg-img"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I've Built</span>
+        <h2>My <span class="highlight">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal" id="project-portfolio">
+          <div class="project-card-inner">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Live Demo" id="portfolio-demo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">A modern, responsive personal portfolio website showcasing skills, projects and
+              contact info. Built with HTML, CSS & JavaScript with smooth animations.</p>
+            <div class="project-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-status">
+                <span class="status-dot"></span> Live
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" id="project-sms">
+          <div class="project-card-inner">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Live Demo" id="sms-demo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Student Management System</h3>
+            <p class="project-desc">A full-stack application to manage student records, attendance and performance.
+              Features CRUD operations, secure authentication and a clean dashboard UI.</p>
+            <div class="project-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">Database</span>
+              <span class="tag">REST API</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-status">
+                <span class="status-dot"></span> Completed
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder "Coming Soon" card -->
+        <div class="project-card project-card-soon reveal" id="project-coming-soon">
+          <div class="project-card-inner soon-inner">
+            <div class="soon-icon">🚀</div>
+            <h3>More Coming Soon</h3>
+            <p>Exciting new projects are in development. Stay tuned!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2>Contact <span class="highlight">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Let's work together!</h3>
+          <p>Feel free to reach out for collaborations, job opportunities or just a friendly chat about tech.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:jeronjoy12@gmail.com" class="contact-value" id="contact-email">jeronjoy12@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/jeron-joseph-037414394" target="_blank" class="contact-value"
+                  id="contact-linkedin">@jeron-joseph</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper reveal">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="John Doe" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" placeholder="john@example.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-full">
+              <span class="btn-text">Send Message</span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+            <p id="responseMessage" class="form-response"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-name">JERON JOSEPH LAGI</p>
+        <p class="footer-copy">&copy; <span id="year"></span> All rights reserved. Built with ❤️</p>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/jeron-joseph-037414394" target="_blank" id="footer-linkedin">LinkedIn</a>
+          <a href="mailto:jeronjoy12@gmail.com" id="footer-email">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
