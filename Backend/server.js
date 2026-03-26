@@ -11,7 +11,7 @@ app.use(cors({
         'http://localhost:5500',
         'http://127.0.0.1:5500',
         // 🔥 REPLACE the URL below with your actual live Render Frontend URL
-        'https://your-new-repository-name.onrender.com'
+        'https://neww-repository-1-frontend-live.onrender.com'
     ],
     methods: ['GET', 'POST'],
     credentials: true
