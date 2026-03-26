@@ -6,15 +6,18 @@
 
 'use strict';
 
+// ✅ CONFIGURATION: Update this to your ACTUAL Render Backend URL
+const BACKEND_URL = 'https://neww-repository-backend-live.onrender.com';
+
 // =============================================
 // 1. NAVBAR — scroll effect + active link
 // =============================================
-const navbar   = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 40);
 
   let current = '';
   sections.forEach(sec => {
@@ -29,21 +32,23 @@ window.addEventListener('scroll', () => {
 // =============================================
 // 2. MOBILE MENU TOGGLE
 // =============================================
-const menuToggle  = document.getElementById('menuToggle');
+const menuToggle = document.getElementById('menuToggle');
 const navLinkList = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = menuToggle.classList.toggle('open');
-  navLinkList.classList.toggle('open', isOpen);
-  menuToggle.setAttribute('aria-expanded', isOpen);
-});
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle.classList.remove('open');
-    navLinkList.classList.remove('open');
+if (menuToggle && navLinkList) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.classList.toggle('open');
+    navLinkList.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
   });
-});
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('open');
+      navLinkList.classList.remove('open');
+    });
+  });
+}
 
 // =============================================
 // 3. PARTICLE CANVAS
@@ -54,11 +59,11 @@ navLinks.forEach(link => {
   const ctx = canvas.getContext('2d');
 
   const PARTICLE_COUNT = 80;
-  const CONNECT_DIST   = 120;
+  const CONNECT_DIST = 120;
   const colors = ['rgba(99,102,241,', 'rgba(6,182,212,', 'rgba(167,139,250,'];
 
   function resize() {
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
   resize();
@@ -67,19 +72,19 @@ navLinks.forEach(link => {
   class Particle {
     constructor() { this.init(); }
     init() {
-      this.x     = Math.random() * canvas.width;
-      this.y     = Math.random() * canvas.height;
-      this.vx    = (Math.random() - 0.5) * 0.4;
-      this.vy    = (Math.random() - 0.5) * 0.4;
-      this.r     = Math.random() * 1.8 + 0.5;
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r = Math.random() * 1.8 + 0.5;
       this.alpha = Math.random() * 0.5 + 0.2;
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
     update() {
       this.x += this.vx;
       this.y += this.vy;
-      if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
     }
     draw() {
       ctx.beginPath();
@@ -94,13 +99,13 @@ navLinks.forEach(link => {
   function connectParticles() {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
-        const dx   = particles[i].x - particles[j].x;
-        const dy   = particles[i].y - particles[j].y;
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < CONNECT_DIST) {
           ctx.beginPath();
           ctx.strokeStyle = `rgba(99,102,241,${(1 - dist / CONNECT_DIST) * 0.2})`;
-          ctx.lineWidth   = 0.8;
+          ctx.lineWidth = 0.8;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
@@ -132,10 +137,10 @@ navLinks.forEach(link => {
     'Problem Solver',
   ];
   let phraseIdx = 0;
-  let charIdx   = 0;
-  let deleting  = false;
-  const SPEED   = 80;
-  const PAUSE   = 1600;
+  let charIdx = 0;
+  let deleting = false;
+  const SPEED = 80;
+  const PAUSE = 1600;
 
   function type() {
     const phrase = phrases[phraseIdx];
@@ -148,7 +153,7 @@ navLinks.forEach(link => {
     } else {
       el.textContent = phrase.substring(0, --charIdx);
       if (charIdx === 0) {
-        deleting  = false;
+        deleting = false;
         phraseIdx = (phraseIdx + 1) % phrases.length;
       }
     }
@@ -165,9 +170,8 @@ navLinks.forEach(link => {
   if (!els.length) return;
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = `${(i % 5) * 0.08}s`;
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
@@ -187,7 +191,7 @@ navLinks.forEach(link => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el    = entry.target;
+        const el = entry.target;
         const width = el.getAttribute('data-width');
         setTimeout(() => { el.style.width = `${width}%`; }, 200);
         observer.unobserve(el);
@@ -208,11 +212,11 @@ navLinks.forEach(link => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el     = entry.target;
+        const el = entry.target;
         const target = parseInt(el.getAttribute('data-target'), 10);
-        let   cur    = 0;
-        const step   = Math.max(1, Math.ceil(target / 30));
-        const timer  = setInterval(() => {
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target / 30));
+        const timer = setInterval(() => {
           cur += step;
           if (cur >= target) { cur = target; clearInterval(timer); }
           el.textContent = cur;
@@ -226,7 +230,7 @@ navLinks.forEach(link => {
 })();
 
 // =============================================
-// 8. CONTACT FORM — POST to /contact
+// 8. CONTACT FORM — Updated for Production
 // =============================================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -235,36 +239,41 @@ if (contactForm) {
 
     const btn = document.getElementById('submitBtn');
     const msg = document.getElementById('responseMessage');
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
+    // UI State: Loading
     btn.disabled = true;
-    btn.querySelector('.btn-text').textContent = 'Sending…';
+    const originalText = btn.querySelector('.btn-text').textContent;
+    btn.querySelector('.btn-text').textContent = 'Sending...';
     msg.textContent = '';
 
     try {
-      const response = await fetch('http://localhost:5000/contact', {
-        method:  'POST',
+      // ✅ FIX: Uses the BACKEND_URL variable defined at the top
+      const response = await fetch(`${BACKEND_URL}/contact`, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        msg.textContent = '✅ ' + (data.message || 'Message sent successfully!');
+        msg.textContent = '✅ Success! Message sent.';
         msg.style.color = '#10b981';
         this.reset();
       } else {
-        throw new Error(data.message || 'Server error');
+        throw new Error(data.message || 'Server rejected request');
       }
     } catch (err) {
-      msg.textContent = '⚠️ Could not reach the server. Try emailing directly!';
+      console.error('Contact Error:', err);
+      msg.textContent = '⚠️ Connection failed. Please try again or email me directly.';
       msg.style.color = '#f59e0b';
     } finally {
       btn.disabled = false;
-      btn.querySelector('.btn-text').textContent = 'Send Message';
+      btn.querySelector('.btn-text').textContent = originalText;
+      // Auto-hide message after 6 seconds
       setTimeout(() => { msg.textContent = ''; }, 6000);
     }
   });
