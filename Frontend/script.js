@@ -6,7 +6,7 @@
 
 'use strict';
 
-// ✅ CONFIGURATION: Update this to your ACTUAL Render Backend URL
+// ✅ CONFIGURATION: Replace with your EXACT Backend URL from Render
 const BACKEND_URL = 'https://neww-repository-backend-live.onrender.com';
 
 // =============================================
@@ -230,7 +230,7 @@ if (menuToggle && navLinkList) {
 })();
 
 // =============================================
-// 8. CONTACT FORM — Updated for Production
+// 8. CONTACT FORM — POST to Backend
 // =============================================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -243,14 +243,12 @@ if (contactForm) {
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    // UI State: Loading
     btn.disabled = true;
-    const originalText = btn.querySelector('.btn-text').textContent;
     btn.querySelector('.btn-text').textContent = 'Sending...';
     msg.textContent = '';
 
     try {
-      // ✅ FIX: Uses the BACKEND_URL variable defined at the top
+      // ✅ This now uses your live Render URL
       const response = await fetch(`${BACKEND_URL}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -260,20 +258,19 @@ if (contactForm) {
       const data = await response.json();
 
       if (response.ok) {
-        msg.textContent = '✅ Success! Message sent.';
+        msg.textContent = '✅ ' + (data.message || 'Message sent successfully!');
         msg.style.color = '#10b981';
         this.reset();
       } else {
-        throw new Error(data.message || 'Server rejected request');
+        throw new Error(data.message || 'Server error');
       }
     } catch (err) {
-      console.error('Contact Error:', err);
-      msg.textContent = '⚠️ Connection failed. Please try again or email me directly.';
+      console.error('Contact error:', err);
+      msg.textContent = '⚠️ Could not reach the server. Please try again.';
       msg.style.color = '#f59e0b';
     } finally {
       btn.disabled = false;
-      btn.querySelector('.btn-text').textContent = originalText;
-      // Auto-hide message after 6 seconds
+      btn.querySelector('.btn-text').textContent = 'Send Message';
       setTimeout(() => { msg.textContent = ''; }, 6000);
     }
   });
