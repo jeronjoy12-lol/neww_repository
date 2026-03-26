@@ -1,20 +1,19 @@
-const express  = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
-const cors     = require('cors');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
-// ── CORS: allow all local dev origins + production ──────────────────────────
+// ── CORS: Add your ACTUAL Render Frontend URL here ──────────────────────────
 app.use(cors({
     origin: [
         'http://localhost:5500',
         'http://127.0.0.1:5500',
-        'http://localhost:3000',
-        'http://localhost:5173',
-        'https://your-frontend.onrender.com'
+        // 🔥 REPLACE the URL below with your actual live Render Frontend URL
+        'https://your-new-repository-name.onrender.com'
     ],
-    methods:     ['GET', 'POST'],
+    methods: ['GET', 'POST'],
     credentials: true
 }));
 
@@ -23,30 +22,29 @@ app.use(express.json());
 // ── MongoDB connection ───────────────────────────────────────────────────────
 const mongoURI = process.env.MONGODB_URI;
 
+// This check is great—it prevents the server from starting if the key is missing
 if (!mongoURI) {
-    console.error('❌ ERROR: MONGODB_URI is missing in .env');
+    console.error('❌ ERROR: MONGODB_URI is missing. Check Render Env Vars!');
     process.exit(1);
 }
 
 mongoose.connect(mongoURI)
-    .then(() => console.log('✅ MongoDB Connected'))
-    .catch(err => console.error('❌ MongoDB Error:', err));
+    .then(() => console.log('✅ MongoDB Connected Successfully'))
+    .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 // ── Schema & Model ───────────────────────────────────────────────────────────
 const contactSchema = new mongoose.Schema({
-    name:      { type: String, required: true },
-    email:     { type: String, required: true },
-    message:   { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true },
     createdAt: { type: Date, default: Date.now }
 });
 
 const Contact = mongoose.model('Contact', contactSchema);
 
 // ── Routes ───────────────────────────────────────────────────────────────────
-
-// POST /contact  — matches frontend fetch('http://localhost:5000/contact')
 app.post('/contact', async (req, res) => {
-    console.log('📩 Incoming:', req.body);
+    console.log('📩 Incoming Data:', req.body);
     try {
         const { name, email, message } = req.body;
 
@@ -64,11 +62,11 @@ app.post('/contact', async (req, res) => {
     }
 });
 
-// GET / — health check
 app.get('/', (req, res) => {
-    res.send('🚀 Portfolio Backend is live!');
+    res.send('🚀 Portfolio Backend is live and connected!');
 });
 
 // ── Start server ─────────────────────────────────────────────────────────────
+// Render automatically provides a PORT, so process.env.PORT is mandatory
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));;
