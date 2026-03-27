@@ -20,11 +20,11 @@ app.use(cors({
 app.use(express.json());
 
 // ── MongoDB connection ───────────────────────────────────────────────────────
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = process.env.MONGO_URI;
 
 // This check is great—it prevents the server from starting if the key is missing
 if (!mongoURI) {
-    console.error('❌ ERROR: MONGODB_URI is missing. Check Render Env Vars!');
+    console.error('❌ ERROR: MONGO_URI is missing. Check Render Env Vars!');
     process.exit(1);
 }
 
